@@ -17,7 +17,8 @@ correctCommitMsgFormat=(
   "🚀 release:"
   "🗑️ remove:"
   "🔼 upgrade:"
-  "📦 add:"
+  "📦 add:",
+  "🧹 chore:"
 )
 
 
@@ -31,7 +32,8 @@ correctCommitMsgTemplate=(
   "🚀 release:{Your message}"
   "🗑️ remove:{Your message}"
   "🔼 upgrade:{Your message}"
-  "📦 add:{Your message}"
+  "📦 add:{Your message}",
+  "🧹 chore:{Your message}"
 )
 
 # Function to check if the commit message starts with one of the prefixes
