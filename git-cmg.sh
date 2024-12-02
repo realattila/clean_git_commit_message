@@ -10,7 +10,7 @@ commitTypes=(
   "🚀 release:"
   "🗑️ remove:"
   "🔼 upgrade:"
-  "📦 add:",
+  "📦 add:"
   "🧹 chore:"
 )
 
