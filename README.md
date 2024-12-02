@@ -91,14 +91,12 @@ This will execute the `git-cmg.sh` script.
 
 ## Customization
 
-The `commit-msg-generator.sh` script is highly customizable. Tailor it to your project's specific commit message conventions. Adjust rules and constraints, such as:
+The `git-cmg.sh` script is highly customizable. Tailor it to your project's specific commit message conventions. Adjust rules and constraints, such as:
 
 - Defining consistent prefixes for different types of commits (e.g., "⭐ feature:", "🛠️ fix:", "🔃 refactor:")
 - Enforcing minimum and maximum message lengths
 - Specifying patterns or regular expressions for commit message matching
 - Customizing error messages for validation failures
-
-Warning: if you change commit message structure you need to fix validation in `commit-msg` file too.
 
 ## Contributing
 
@@ -107,3 +105,7 @@ We encourage contributions to this project. If you'd like to make improvements, 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/realattila/clean_git_commit_message/blob/main/LICENSE.md) file for details.
+
+## Resources
+
+Clean git commit message generator use standard from [conventionalcommits](https://www.conventionalcommits.org/)
