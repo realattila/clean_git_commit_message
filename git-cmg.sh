@@ -69,6 +69,9 @@ promptUser() {
     formattedCommitMessage="${formattedCommitMessage}\n\n${commitFooter}"
   fi
 
+  # Ensure proper handling of line breaks
+  formattedCommitMessage=$(echo -e "$formattedCommitMessage") # This will interpret \n correctly
+
   # Perform the commit
   git commit -m "$formattedCommitMessage"
 
