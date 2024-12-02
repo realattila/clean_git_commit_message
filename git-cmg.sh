@@ -34,22 +34,49 @@ promptUser() {
 
   selectedFormat="${commitTypes[typeIndex]}"
 
-  read -p "Enter your commit message: " commitMessage
+  # Get optional scope
+  read -p "Enter an optional scope (leave empty to skip): " commitScope
+  if [ -n "$commitScope" ]; then
+    selectedFormat="${selectedFormat}(${commitScope}):"
+  fi
+
+  # Get commit description
+  read -p "Enter your commit message (description): " commitMessage
+  if [ -z "$commitMessage" ]; then
+    echo "Description is required."
+    return
+  fi
+
+  # Get optional body
+  read -p "Enter an optional body (leave empty to skip): " commitBody
+
+  # Get optional footer
+  read -p "Enter optional footer(s) (e.g., BREAKING CHANGE or references to issues; leave empty to skip): " commitFooter
 
   # Check if the staging area is empty
   if [[ -z $(git diff --cached --exit-code) ]]; then
     git add .
   fi
 
+  # Format the commit message
   formattedCommitMessage="${selectedFormat} ${commitMessage}"
 
+  if [ -n "$commitBody" ]; then
+    formattedCommitMessage="${formattedCommitMessage}\n\n${commitBody}"
+  fi
+
+  if [ -n "$commitFooter" ]; then
+    formattedCommitMessage="${formattedCommitMessage}\n\n${commitFooter}"
+  fi
+
+  # Perform the commit
   git commit -m "$formattedCommitMessage"
 
   if [ $? -ne 0 ]; then
     echo "Error committing changes."
   else
     echo "Git commit successful:"
-    echo "$formattedCommitMessage"
+    echo -e "$formattedCommitMessage"
   fi
 }
 
